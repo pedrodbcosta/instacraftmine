@@ -1,0 +1,46 @@
+{
+  "name": "instacraftmine",
+  "private": true,
+  "version": "0.52.0",
+  "description": "Gestor de mundos, servidores e coordenadas de Minecraft — PWA em React + TypeScript",
+  "homepage": "https://minstacraft.pages.dev",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/gerar-tabelas-embutidas.mjs && tsc --noEmit && vite build",
+    "sitemap": "node scripts/gerar-sitemap.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "version:bump": "node scripts/bump-version.mjs",
+    "conta:oficial": "node scripts/create-conta-oficial.mjs",
+    "ia:diaria": "node scripts/ia-diaria/run.mjs",
+    "ia:simular": "node scripts/ia-diaria/run.mjs --simular",
+    "ia:gas": "node scripts/ia-gas/build.mjs",
+    "ia:agendar": "powershell -ExecutionPolicy Bypass -File scripts/agendar-ia-diaria.ps1",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "icons": "python tools/gen_assets.py",
+    "check:sprites": "python tools/check_sprites.py",
+    "serve:dist": "node scripts/serve.mjs",
+    "mc:embutir": "node scripts/gerar-tabelas-embutidas.mjs",
+    "verificar:file": "node tools/verificar-file.mjs",
+    "publicar": "npm run build && node scripts/publicar.mjs --abrir"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "esbuild": "^0.28.2",
+    "fake-indexeddb": "^6.2.2",
+    "jsdom": "^27.0.0",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0",
+    "vite-plugin-pwa": "^1.0.0",
+    "vitest": "^3.2.0"
+  }
+}

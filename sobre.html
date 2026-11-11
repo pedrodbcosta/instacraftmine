@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>O que é o Instacraftmine — gestor de mundos e coordenadas de Minecraft</title>
+    <meta
+      name="description"
+      content="O Instacraftmine é uma aplicação gratuita, em português, para organizar mundos, servidores e coordenadas de Minecraft. Mapa da seed, tarefas, Instacraft e funciona sem internet. Explicação completa, com limites."
+    />
+    <link rel="canonical" href="%SITE_URL%/sobre.html" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="Instacraftmine" />
+    <meta name="theme-color" content="#4a86d8" />
+    <meta name="color-scheme" content="light" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Instacraftmine" />
+    <meta property="og:locale" content="pt_PT" />
+    <meta property="og:title" content="O que é o Instacraftmine" />
+    <meta
+      property="og:description"
+      content="Aplicação gratuita para organizar mundos, servidores e coordenadas de Minecraft: mapa da seed, tarefas, Instacraft e funcionamento sem internet."
+    />
+    <meta property="og:url" content="%SITE_URL%/sobre.html" />
+    <meta property="og:image" content="%SITE_URL%/og/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Cartão do Instacraftmine: um bloco de relva sobre o céu, com o nome da aplicação."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="O que é o Instacraftmine" />
+    <meta
+      name="twitter:description"
+      content="Aplicação gratuita para organizar mundos, servidores e coordenadas de Minecraft: mapa da seed, tarefas e funcionamento sem internet."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og/og-image.png" />
+
+    <link rel="icon" href="./icons/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="./icons/favicon-48.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "@id": "%SITE_URL%/sobre.html#pagina",
+            "url": "%SITE_URL%/sobre.html",
+            "name": "O que é o Instacraftmine",
+            "inLanguage": "pt-PT",
+            "isPartOf": { "@id": "%SITE_URL%/#site" },
+            "about": { "@id": "%SITE_URL%/#aplicacao" },
+            "breadcrumb": { "@id": "%SITE_URL%/sobre.html#migalhas" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "%SITE_URL%/sobre.html#migalhas",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Instacraftmine",
+                "item": "%SITE_URL%/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "O que é o Instacraftmine",
+                "item": "%SITE_URL%/sobre.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      /* Página de texto: só HTML e CSS, sem JavaScript e sem o build da
+         aplicação, para que qualquer motor de busca (ou IA) a consiga ler. */
+      :root {
+        --ceo: #4a86d8;
+        --ceu: #78b0f0;
+        --tinta: #1c1c1c;
+        --papel: #f4f7fb;
+        --cartao: #ffffff;
+        --borda: #1c1c1c;
+        --verde: #5b9e3c;
+        --cinza: #5a6470;
+        --amarelo: #ffe9b0;
+        --mono: ui-monospace, 'Cascadia Mono', Consolas, 'Courier New', monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--papel);
+        color: var(--tinta);
+        font: 16px/1.65 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      }
+
+      a {
+        color: #1b5fb0;
+      }
+
+      a:hover {
+        color: var(--verde);
+      }
+
+      .topo {
+        background: linear-gradient(180deg, var(--ceo) 0%, var(--ceu) 100%);
+        border-bottom: 3px solid var(--borda);
+      }
+
+      .topo__interno {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 14px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .marca {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        color: #fff;
+        text-decoration: none;
+        font-family: var(--mono);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.45);
+      }
+
+      .marca img {
+        display: block;
+        width: 32px;
+        height: 32px;
+        border: 2px solid #1c1c1c;
+        image-rendering: pixelated;
+      }
+
+      .botao {
+        display: inline-block;
+        padding: 10px 16px;
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+        background: var(--verde);
+        border: 2px solid var(--borda);
+        box-shadow:
+          inset 2px 2px 0 rgba(255, 255, 255, 0.35),
+          0 3px 0 rgba(0, 0, 0, 0.45);
+      }
+
+      .botao:hover {
+        color: #fff;
+        filter: brightness(1.1);
+      }
+
+      main {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 28px 20px 56px;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-family: var(--mono);
+        font-size: 30px;
+        line-height: 1.2;
+      }
+
+      h2 {
+        margin: 38px 0 10px;
+        padding-bottom: 6px;
+        font-family: var(--mono);
+        font-size: 20px;
+        border-bottom: 2px solid #cfd8e3;
+      }
+
+      h3 {
+        margin: 20px 0 6px;
+        font-size: 17px;
+      }
+
+      p,
+      li {
+        max-width: 72ch;
+      }
+
+      .lead {
+        font-size: 18px;
+        color: #26313d;
+      }
+
+      .indice {
+        margin: 22px 0 0;
+        padding: 14px 18px;
+        background: var(--cartao);
+        border: 2px solid var(--borda);
+      }
+
+      .indice ol {
+        margin: 8px 0 0;
+        padding-left: 20px;
+        columns: 2;
+        column-gap: 28px;
+      }
+
+      .cartao {
+        margin: 16px 0;
+        padding: 16px 18px;
+        background: var(--cartao);
+        border: 2px solid #cfd8e3;
+      }
+
+      .cartao--aviso {
+        border-color: #b58900;
+        background: #fffaf0;
+      }
+
+      .cartao--aviso strong {
+        color: #7a5b00;
+      }
+
+      dl {
+        margin: 0;
+      }
+
+      dt {
+        margin-top: 12px;
+        font-weight: 700;
+      }
+
+      dt:first-child {
+        margin-top: 0;
+      }
+
+      dd {
+        margin: 2px 0 0;
+        color: #26313d;
+      }
+
+      table {
+        width: 100%;
+        margin: 12px 0;
+        border-collapse: collapse;
+        font-size: 15px;
+      }
+
+      th,
+      td {
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+        border: 1px solid #cfd8e3;
+        background: var(--cartao);
+      }
+
+      th {
+        background: #e8eef6;
+        font-family: var(--mono);
+        font-size: 13px;
+      }
+
+      code {
+        font-family: var(--mono);
+        font-size: 0.92em;
+        background: #eef2f7;
+        padding: 1px 5px;
+        border: 1px solid #d5dde7;
+      }
+
+      .pergunta {
+        margin: 18px 0 0;
+        font-weight: 700;
+        font-family: var(--mono);
+        font-size: 15px;
+      }
+
+      .pergunta + p {
+        margin-top: 4px;
+      }
+
+      footer {
+        border-top: 3px solid var(--borda);
+        background: #e8eef6;
+      }
+
+      .rodape__interno {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 22px 20px 40px;
+        font-size: 14px;
+        color: var(--cinza);
+      }
+
+      .rodape__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 20px;
+        margin: 0 0 14px;
+        padding: 0;
+        list-style: none;
+        font-family: var(--mono);
+        font-size: 13px;
+      }
+
+      @media (max-width: 620px) {
+        .indice ol {
+          columns: 1;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topo">
+      <div class="topo__interno">
+        <a class="marca" href="./">
+          <img src="./icons/favicon-48.png" alt="" width="32" height="32" />
+          Instacraftmine
+        </a>
+        <a class="botao" href="./">Abrir a aplicação</a>
+      </div>
+    </header>
+
+    <main>
+      <h1>O que é o Instacraftmine</h1>
+      <p class="lead">
+        O <strong>Instacraftmine</strong> é uma aplicação web gratuita, em português de Portugal, para
+        organizar <strong>mundos</strong>, <strong>servidores</strong> e <strong>coordenadas</strong> de
+        Minecraft. Guarda tudo no dispositivo onde a usas, continua a funcionar sem internet e pode ser
+        instalada no telemóvel ou no computador como qualquer aplicação.
+      </p>
+
+      <nav class="indice" aria-labelledby="indice-titulo">
+        <h2 id="indice-titulo" style="margin: 0; border: 0; padding: 0; font-size: 15px">
+          Nesta página
+        </h2>
+        <ol>
+          <li><a href="#o-que-faz">O que podes fazer</a></li>
+          <li><a href="#mapa">O mapa da seed</a></li>
+          <li><a href="#dados">Onde ficam os dados</a></li>
+          <li><a href="#dispositivos">Em que dispositivos funciona</a></li>
+          <li><a href="#limites">O que a aplicação não faz</a></li>
+          <li><a href="#perguntas">Perguntas frequentes</a></li>
+          <li><a href="#ligacoes">Ligações</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="o-que-faz">O que podes fazer</h2>
+      <p>
+        A ideia é simples: o jogo esquece-se das coordenadas, tu não. Em vez de apontamentos soltos,
+        cada coisa fica no sítio onde faz sentido — as coordenadas vivem dentro do mundo (ou do
+        servidor) a que pertencem.
+      </p>
+
+      <dl>
+        <dt>Mundos</dt>
+        <dd>
+          Nome, ícone, edição (Java, Bedrock ou outra), versão, modo de jogo, descrição, estado
+          (ativo, em pausa, arquivado), notas, <strong>seed</strong> e imagem de capa. Cada mundo tem
+          uma lista de localizações e um mapa.
+        </dd>
+
+        <dt>Servidores</dt>
+        <dd>
+          Endereço e porta (opcionais), edição, versão, tipo, lista de jogadores ou amigos, notas e
+          estado. O estado é sempre escrito à mão: a aplicação <strong>não contacta servidores</strong>
+          e di-lo de forma explícita — não há verificação em tempo real.
+        </dd>
+
+        <dt>Coordenadas</dt>
+        <dd>
+          X, Y e Z em campos separados, dimensão (Overworld, Nether ou End), categoria (base,
+          estrutura, aldeia, mina, portal, fortaleza, cidade antiga, monumento oceânico, mansão,
+          posto de saqueadores, fazenda…), descrição, favorito e fotografia. As coordenadas podem ser
+          coladas diretamente do jogo — <code>120 68 -340</code>, <code>X: 120, Y: 68, Z: -340</code>
+          ou <code>/tp @s 120 68 -340</code> — e copiadas num clique no formato que o jogo aceita. Nos
+          servidores partilhados há coordenadas privadas (só na conta) e públicas (vistas por todos os
+          membros, com o nome de quem as acrescentou).
+        </dd>
+
+        <dt>Tarefas</dt>
+        <dd>
+          Listas de «o que falta fazer» por mundo e por servidor. Nos servidores partilhados há tarefas
+          privadas (só tuas) e públicas (vistas por todos os colaboradores, com registo de quem marcou
+          cada uma como feita).
+        </dd>
+
+        <dt>Favoritos</dt>
+        <dd>
+          Um só sítio para o que marcaste com estrela: localizações, mundos e servidores.
+        </dd>
+
+        <dt>Instacraft</dt>
+        <dd>
+          A parte social: um feed público de publicações sobre mundos (fotografia, vídeo por link ou
+          só texto), com likes e comentários, e um canal por conta. Qualquer pessoa vê o feed, mesmo
+          sem conta; publicar e comentar exige sessão iniciada. Não é um arquivo: as publicações com
+          mais de 10 dias são apagadas automaticamente, com as fotografias e os vídeos que tiverem.
+        </dd>
+
+        <dt>Cópias de segurança</dt>
+        <dd>
+          Exportação e importação de tudo num ficheiro JSON (Definições → Cópias de segurança); os
+          bugs e sugestões que enviares também se descarregam em Excel. Sem conta, é o JSON que leva
+          os dados de um dispositivo para outro.
+        </dd>
+      </dl>
+
+      <h2 id="mapa">O mapa da seed</h2>
+      <p>
+        Abrir um mundo mostra um mapa desenhado a partir da <strong>seed</strong> guardada, com
+        marcadores das tuas localizações. Há dois motores, e a diferença importa:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Situação</th>
+            <th scope="col">O que o mapa mostra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Java 1.18 ou mais recente</strong> (motor do jogo)</td>
+            <td>
+              Biomas calculados pelo mesmo algoritmo do jogo (gerador de números
+              Xoroshiro128++, ruído Perlin duplo, clima, árvore de parâmetros) e estruturas com as
+              mesmas tentativas do jogo. É validado ponto a ponto contra o <em>cubiomes</em>, a
+              referência usada pelos mapas de seed.
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Versões anteriores e Bedrock</strong> (simulação)</td>
+            <td>
+              Uma interpretação da seed: biomas e relevo plausíveis, mas
+              <strong>não idênticos</strong> ao mundo que o jogo criaria. Para Bedrock não existe
+              motor aberto — a aplicação diz isso e aponta para o mapa real.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Em qualquer dos casos há o atalho <strong>«Mapa real»</strong>, que abre uma ferramenta
+        dedicada (Chunkbase) com a seed e a plataforma já preenchidas, para quem quer ver o mundo
+        exatamente como o jogo o gera.
+      </p>
+
+      <h2 id="dados">Onde ficam os dados e quem os pode ver</h2>
+      <ul>
+        <li>
+          <strong>Sem conta:</strong> mundos, servidores, localizações e preferências ficam
+          <strong>só</strong> no armazenamento do navegador (IndexedDB) do teu dispositivo. Não é
+          enviado nada para servidor nenhum.
+        </li>
+        <li>
+          <strong>Com sessão iniciada:</strong> o mesmo acervo passa a seguir a conta, para aparecer
+          em qualquer dispositivo onde entrares. A sincronização usa o Supabase (base de dados,
+          autenticação e ficheiros).
+        </li>
+        <li>
+          <strong>O que é público:</strong> apenas o que publicares no Instacraft — o feed é visível
+          para todos. As fotografias do chat de um servidor são privadas, servidas só a quem é membro
+          desse servidor.
+        </li>
+        <li>
+          <strong>Publicações antigas:</strong> no Instacraft não há arquivo. Passados 10 dias, a
+          publicação é apagada da base de dados (com os likes e os comentários) e as fotografias e os
+          vídeos saem do armazenamento. O que quiseres guardar, copia antes disso.
+        </li>
+        <li>
+          <strong>Sem publicidade nem ferramentas de análise de tráfego:</strong> a aplicação não
+          inclui anúncios, rastreadores publicitários nem contadores de visitas próprios.
+        </li>
+      </ul>
+
+      <h2 id="dispositivos">Em que dispositivos funciona</h2>
+      <p>
+        Em qualquer navegador moderno — Chrome, Edge, Firefox, Safari — no computador, no telemóvel ou
+        no tablet. A aplicação deteta o dispositivo e muda de interface: no computador há menu no topo
+        e duas colunas; no telemóvel há uma barra fina, menu em baixo ao alcance do polegar e
+        formulários em ecrã inteiro. A escolha pode ser forçada em
+        <strong>Definições → Preferências</strong>.
+      </p>
+      <p>
+        Com HTTPS (no site publicado) pode ser instalada como aplicação: fica com ícone no ambiente de
+        trabalho ou no ecrã inicial e abre sem barra do navegador. Depois da primeira visita, funciona
+        sem internet.
+      </p>
+
+      <h2 id="limites">O que a aplicação não faz</h2>
+      <p>
+        Dizer o que falta é mais útil do que prometer tudo. Estes limites são conhecidos e assumidos:
+      </p>
+      <ul>
+        <li>Não verifica se um servidor está online nem quantos jogadores tem.</li>
+        <li>Não cria nem altera mundos de Minecraft: não lê ficheiros <code>.mca</code> nem joga.</li>
+        <li>
+          Não tem motor exato de biomas para Bedrock nem para versões anteriores a 1.18 — aí o
+          mapa é uma simulação, e a interface di-lo.
+        </li>
+        <li>
+          No motor do jogo falta a viabilidade dos <em>gateways</em> das cidades do End e a opção
+          <em>large biomes</em>.
+        </li>
+        <li>
+          Não é afiliada à Mojang nem à Microsoft. <em>Minecraft</em> é uma marca da Mojang Studios.
+        </li>
+      </ul>
+
+      <h2 id="perguntas">Perguntas frequentes</h2>
+
+      <p class="pergunta">É preciso conta para usar?</p>
+      <p>
+        Não. Mundos, servidores e coordenadas funcionam sem conta, guardados no dispositivo. A conta
+        serve para sincronizar entre dispositivos, para o Instacraft e para o chat dos servidores
+        partilhados.
+      </p>
+
+      <p class="pergunta">Perco os dados se limpar o navegador?</p>
+      <p>
+        Sim, se não tiveres conta nem cópia de segurança. Os dados sem conta vivem no armazenamento do
+        navegador. Exporta em <strong>Definições → Cópias de segurança</strong> ou entra com uma conta
+        para ficarem também do lado do servidor.
+      </p>
+
+      <p class="pergunta">O mapa é igual ao do jogo?</p>
+      <p>
+        Em Java 1.18 ou mais recente, os biomas e as estruturas seguem o algoritmo do jogo e são
+        verificados contra uma referência independente. Em versões anteriores e em Bedrock o mapa é
+        uma simulação, e a própria interface o diz.
+      </p>
+
+      <p class="pergunta">Funciona no telemóvel e sem internet?</p>
+      <p>
+        Sim. A aplicação é uma PWA: instalada, abre a partir do dispositivo e continua a funcionar sem
+        rede. As funções que dependem do servidor (sincronização, Instacraft, chat) precisam de
+        internet.
+      </p>
+
+      <p class="pergunta">Quanto custa?</p>
+      <p>Nada. A aplicação é gratuita e não tem publicidade.</p>
+
+      <h2 id="ligacoes">Ligações</h2>
+      <ul>
+        <li><a href="./">Abrir a aplicação</a></li>
+        <li><a href="./#/mundos">Mundos</a> · <a href="./#/servidores">Servidores</a> · <a href="./#/instacraft">Instacraft</a> · <a href="./#/favoritos">Favoritos</a></li>
+        <li><a href="./llms.txt">llms.txt</a> — resumo do site em texto simples, para assistentes de IA</li>
+        <li><a href="./sitemap.xml">sitemap.xml</a> — mapa do site para os motores de busca</li>
+      </ul>
+    </main>
+
+    <footer>
+      <div class="rodape__interno">
+        <ul class="rodape__links">
+          <li><a href="./">Aplicação</a></li>
+          <li><a href="./llms.txt">llms.txt</a></li>
+          <li><a href="./sitemap.xml">Mapa do site</a></li>
+        </ul>
+        <p style="margin: 0 0 6px">
+          Instacraftmine — gestor de mundos, servidores e coordenadas de Minecraft.
+        </p>
+        <p style="margin: 0">
+          Projeto independente, sem ligação à Mojang ou à Microsoft. <em>Minecraft</em> é uma marca da
+          Mojang Studios.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

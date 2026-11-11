@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Instacraftmine — Mundos, servidores e coordenadas Minecraft</title>
+    <meta
+      name="description"
+      content="Gestor de mundos, servidores e coordenadas de Minecraft. Guarda bases, portais e estruturas, vê o mapa da seed e funciona sem internet."
+    />
+    <!--
+      Endereço canónico e imagem de partilha.
+
+      `%SITE_URL%` é trocado no build (e no servidor de desenvolvimento) pelo
+      campo `homepage` do package.json — ver `siteUrlPlugin()` no vite.config.ts.
+      Escrever o domínio à mão aqui era o caminho mais curto para a canónica
+      ficar a apontar para um site que já não existe.
+    -->
+    <link rel="canonical" href="%SITE_URL%/" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="application-name" content="Instacraftmine" />
+    <meta name="author" content="Instacraftmine" />
+    <link rel="sitemap" type="application/xml" title="Mapa do site" href="./sitemap.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Instacraftmine" />
+    <meta property="og:locale" content="pt_PT" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta
+      property="og:title"
+      content="Instacraftmine — Gestor de mundos, servidores e coordenadas de Minecraft"
+    />
+    <meta
+      property="og:description"
+      content="Organiza mundos e servidores, guarda as coordenadas das bases e portais e vê o mapa da seed. Funciona sem internet e instala-se como aplicação."
+    />
+    <meta property="og:image" content="%SITE_URL%/og/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Cartão do Instacraftmine: um bloco de relva sobre um céu com nuvens e o nome da aplicação."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Instacraftmine — Gestor de mundos, servidores e coordenadas de Minecraft"
+    />
+    <meta
+      name="twitter:description"
+      content="Organiza mundos e servidores, guarda as coordenadas das bases e portais e vê o mapa da seed. Funciona sem internet."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og/og-image.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Cartão do Instacraftmine: um bloco de relva sobre um céu com nuvens e o nome da aplicação."
+    />
+    <meta name="theme-color" content="#4a86d8" />
+    <meta name="color-scheme" content="light" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Instacraftmine" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <!--
+      Dados estruturados (schema.org). Dizem ao Google, em linguagem de máquina,
+      o que é esta página: um site em português com uma aplicação web gratuita.
+      Não há `aggregateRating` nem avaliações inventadas — só factos.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "%SITE_URL%/#site",
+            "url": "%SITE_URL%/",
+            "name": "Instacraftmine",
+            "alternateName": "Instacraftmine — Gestor de mundos, servidores e coordenadas de Minecraft",
+            "description": "Aplicação web gratuita, em português, para organizar mundos, servidores e coordenadas de Minecraft.",
+            "inLanguage": "pt-PT",
+            "publisher": { "@id": "%SITE_URL%/#organizacao" }
+          },
+          {
+            "@type": "Organization",
+            "@id": "%SITE_URL%/#organizacao",
+            "name": "Instacraftmine",
+            "url": "%SITE_URL%/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "%SITE_URL%/icons/icon-512.png",
+              "width": 512,
+              "height": 512
+            }
+          },
+          {
+            "@type": "WebApplication",
+            "@id": "%SITE_URL%/#aplicacao",
+            "name": "Instacraftmine",
+            "url": "%SITE_URL%/",
+            "description": "Gestor de mundos, servidores e coordenadas de Minecraft: mapa da seed, tarefas, favoritos e uma parte social (Instacraft). Guarda os dados no dispositivo e funciona sem internet.",
+            "applicationCategory": "GameApplication",
+            "applicationSubCategory": "Gestão de mundos de Minecraft",
+            "operatingSystem": "Qualquer sistema com um navegador moderno",
+            "browserRequirements": "Precisa de JavaScript e de um navegador com IndexedDB (Chrome, Edge, Firefox ou Safari atuais).",
+            "inLanguage": "pt-PT",
+            "isAccessibleForFree": true,
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+            "image": "%SITE_URL%/og/og-image.png",
+            "featureList": [
+              "Organizar mundos de Minecraft com seed, edição, versão e modo de jogo",
+              "Guardar servidores com endereço, porta, jogadores e notas",
+              "Guardar coordenadas X, Y e Z por dimensão, com cópia num clique",
+              "Mapa da seed com biomas e estruturas (Minecraft Java 1.18+)",
+              "Listas de tarefas por mundo e por servidor",
+              "Funcionar sem internet, como aplicação instalável"
+            ],
+            "isPartOf": { "@id": "%SITE_URL%/#site" },
+            "author": { "@id": "%SITE_URL%/#organizacao" }
+          }
+        ]
+      }
+    </script>
+
+    <!-- O Google mostra este ícone ao lado do resultado. Pede um quadrado com
+         um lado múltiplo de 48 px, por isso há 48, 96 e 192 além das medidas
+         clássicas do separador. O SVG serve os ecrãs de alta densidade. -->
+    <link rel="icon" href="./icons/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="./icons/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="./icons/favicon-96.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png" />
+    <link rel="mask-icon" href="./icons/mask-icon.svg" color="#5b9e3c" />
+
+    <style>
+      /* Estilos mínimos, sempre disponíveis mesmo que o CSS principal falhe. */
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background-color: #78b0f0;
+        background-image: linear-gradient(180deg, #4a86d8 0%, #78b0f0 55%, #a9d3ff 100%);
+      }
+
+      #boot {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font: 700 14px/1.4 monospace;
+        color: #fff;
+        text-shadow: 2px 2px 0 #1c1c1c;
+        letter-spacing: 0.08em;
+      }
+
+      /* Ecrã de erro de arranque */
+      #boot-failure {
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        display: grid;
+        place-items: center;
+        padding: 16px;
+        overflow-y: auto;
+        background: rgba(4, 10, 20, 0.72);
+        font: 13px/1.6 monospace;
+        color: #fff;
+      }
+
+      #boot-failure[hidden] {
+        display: none;
+      }
+
+      .bf-card {
+        max-width: 560px;
+        width: 100%;
+        padding: 18px;
+        background: #141414;
+        border: 2px solid #000;
+        box-shadow:
+          inset 2px 2px 0 #4a4a4a,
+          inset -2px -2px 0 #000,
+          0 8px 0 rgba(0, 0, 0, 0.45);
+      }
+
+      .bf-badge {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 3px 8px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        color: #ffe9b0;
+        background: rgba(110, 78, 12, 0.6);
+        border: 2px solid #000;
+      }
+
+      .bf-title {
+        margin: 0 0 10px;
+        font-size: 18px;
+        line-height: 1.3;
+        text-shadow: 2px 2px 0 #000;
+      }
+
+      .bf-text {
+        margin: 0 0 12px;
+        color: #dcdcdc;
+      }
+
+      .bf-code {
+        display: block;
+        margin: 8px 0;
+        padding: 8px 10px;
+        background: #000;
+        border: 2px solid #333;
+        color: #9ef07a;
+        font-size: 12px;
+        overflow-x: auto;
+        white-space: pre;
+      }
+
+      .bf-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 14px 0 10px;
+      }
+
+      .bf-actions button {
+        flex: 1 1 auto;
+        min-height: 44px;
+        padding: 10px 14px;
+        font: inherit;
+        color: #fff;
+        background: #5b9e3c;
+        border: 2px solid #000;
+        box-shadow:
+          inset 2px 2px 0 rgba(255, 255, 255, 0.4),
+          inset -2px 0 0 rgba(0, 0, 0, 0.4),
+          0 3px 0 rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+
+      .bf-actions button.bf-secondary {
+        background: #6f6f6f;
+      }
+
+      .bf-actions button:hover {
+        filter: brightness(1.12);
+      }
+
+      .bf-hint {
+        margin: 0;
+        font-size: 11px;
+        color: #9a9a9a;
+      }
+
+      /* Aviso para quem abre o site sem JavaScript (ver o <noscript> no body):
+         sem ele a página ficava em «A gerar o mundo…» para sempre. */
+      .nojs {
+        max-width: 560px;
+        margin: 24px auto;
+        padding: 18px;
+        color: #fff;
+        background: #141414;
+        border: 2px solid #000;
+        box-shadow:
+          inset 2px 2px 0 #4a4a4a,
+          inset -2px -2px 0 #000,
+          0 8px 0 rgba(0, 0, 0, 0.45);
+        font: 13px/1.6 monospace;
+      }
+
+      .nojs h1 {
+        margin: 0 0 10px;
+        font-size: 16px;
+        line-height: 1.35;
+        text-shadow: 2px 2px 0 #000;
+      }
+
+      .nojs p,
+      .nojs li {
+        color: #dcdcdc;
+      }
+
+      .nojs p {
+        margin: 0 0 10px;
+      }
+
+      .nojs ul {
+        margin: 0 0 12px;
+        padding-left: 18px;
+      }
+
+      .nojs a {
+        color: #9ef07a;
+      }
+    </style>
+    <noscript>
+      <!-- Sem JavaScript o arranque da app nunca termina: esconde-se o ecrã de
+           espera para ficar só a explicação em texto. -->
+      <style>
+        #boot {
+          display: none;
+        }
+      </style>
+    </noscript>
+    <script>
+      /*
+       * Marcar já o dispositivo antes do React arrancar.
+       *
+       * Sem isto, um telemóvel via primeiro o cabeçalho e o menu da versão de
+       * computador e só depois o layout certo (um «salto» visível). A regra é a
+       * mesma de `src/lib/device.ts`; aqui fica a cópia mínima porque o módulo
+       * principal ainda não correu. O React volta a confirmar e a corrigir.
+       */
+      (function () {
+        try {
+          var root = document.documentElement;
+          var nav = window.navigator || {};
+          var ua = nav.userAgent || '';
+          var width = window.innerWidth || 0;
+          var coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+          var fineHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+          var mobileUa =
+            (nav.userAgentData && nav.userAgentData.mobile === true) ||
+            /Android|iPhone|iPod|iPad|Tablet|Silk|PlayBook|Windows Phone|IEMobile|Opera Mini|Mobile Safari/i.test(ua) ||
+            (/Macintosh/i.test(ua) && nav.maxTouchPoints > 1);
+          var isMobile = mobileUa || width <= 620 || (coarse && !fineHover && width <= 1100);
+          root.dataset.device = isMobile ? 'mobile' : 'desktop';
+          root.dataset.touch = coarse || nav.maxTouchPoints > 0 ? 'true' : 'false';
+        } catch (error) {
+          /* sem atributo, o React decide ao montar */
+        }
+      })();
+    </script>
+
+    <!--
+      Ponto de entrada da aplicação. Fica no <head> (os módulos executam depois
+      de a página ser lida, por isso não muda nada) para o vigia de arranque o
+      conseguir ver e explicar que este é o ficheiro de desenvolvimento.
+      No build, sai daqui um módulo inline dentro do próprio HTML.
+    -->
+    <script type="module" src="/src/main.tsx"></script>
+  </head>
+  <body>
+    <!--
+      Texto para quem não executa JavaScript: motores de busca antigos,
+      leitores automáticos e assistentes de IA que só descarregam o HTML. Com
+      JavaScript ligado isto não é mostrado; sem ele, é a única explicação que
+      existe na página.
+    -->
+    <noscript>
+      <div class="nojs">
+        <h1>Instacraftmine — gestor de mundos, servidores e coordenadas de Minecraft</h1>
+        <p>
+          Esta é uma aplicação web: a interface é construída no navegador e os dados ficam guardados
+          no teu dispositivo, por isso precisa de JavaScript para funcionar.
+        </p>
+        <ul>
+          <li>Guarda mundos, servidores e coordenadas (X, Y, Z) de Minecraft.</li>
+          <li>Desenha o mapa da seed, com biomas e estruturas, em Java 1.18 ou mais recente.</li>
+          <li>Funciona sem internet e instala-se como aplicação no telemóvel ou no computador.</li>
+        </ul>
+        <p>
+          Sem JavaScript podes ler a explicação completa em
+          <a href="./sobre.html">o que é o Instacraftmine</a>. Para máquinas e assistentes de IA há um
+          resumo em texto simples em <a href="./llms.txt">llms.txt</a>.
+        </p>
+      </div>
+    </noscript>
+
+    <div id="boot">A gerar o mundo…</div>
+    <div id="root"></div>
+
+    <div id="boot-failure" hidden role="alert" aria-live="assertive">
+      <div class="bf-card">
+        <span class="bf-badge">ARRANQUE INTERROMPIDO</span>
+        <h1 class="bf-title" id="bf-title">A aplicação não arrancou</h1>
+        <div class="bf-text" id="bf-text"></div>
+        <div class="bf-actions">
+          <button type="button" onclick="window.location.reload()">Tentar novamente</button>
+          <button type="button" class="bf-secondary" id="bf-reset">Limpar cache e recarregar</button>
+        </div>
+        <p class="bf-hint" id="bf-hint"></p>
+      </div>
+    </div>
+
+    <script>
+      /*
+       * Vigia de arranque: sem isto, quando o JavaScript principal não executa
+       * (ficheiro incompleto, build interrompido), a página ficaria em
+       * «A gerar o mundo…» para sempre sem explicar nada.
+       *
+       * Abrir por duplo clique (file://) é suportado: o JavaScript vai dentro
+       * deste HTML e o service worker só é registado em http(s).
+       */
+      (function () {
+        var boot = document.getElementById('boot');
+        var failure = document.getElementById('boot-failure');
+        var titleEl = document.getElementById('bf-title');
+        var textEl = document.getElementById('bf-text');
+        var hintEl = document.getElementById('bf-hint');
+        var resetButton = document.getElementById('bf-reset');
+        var isFile = window.location.protocol === 'file:';
+
+        function showFailure(options) {
+          if (boot) boot.style.display = 'none';
+          failure.hidden = false;
+          titleEl.textContent = options.title;
+          textEl.innerHTML = options.html;
+          hintEl.textContent = options.hint || '';
+          if (isFile) resetButton.style.display = 'none';
+        }
+
+        function clearCachesAndReload() {
+          var jobs = [];
+          if (window.navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+            jobs.push(
+              navigator.serviceWorker
+                .getRegistrations()
+                .then(function (registrations) {
+                  return Promise.all(
+                    registrations.map(function (registration) {
+                      return registration.unregister();
+                    }),
+                  );
+                })
+                .catch(function () {}),
+            );
+          }
+          if (window.caches && caches.keys) {
+            jobs.push(
+              caches
+                .keys()
+                .then(function (keys) {
+                  return Promise.all(
+                    keys.map(function (key) {
+                      return caches.delete(key);
+                    }),
+                  );
+                })
+                .catch(function () {}),
+            );
+          }
+          Promise.all(jobs).then(function () {
+            window.location.reload();
+          });
+        }
+
+        resetButton.addEventListener('click', clearCachesAndReload);
+
+        /*
+         * Na raiz do projeto, este ficheiro é o ponto de entrada do Vite (o
+         * JavaScript de desenvolvimento vem de /src/main.tsx, que só existe com
+         * servidor). Quem fizer duplo clique nele vê uma explicação em vez do
+         * ecrã vazio. No `dist/index.html` (autónomo) não há esse script, por
+         * isso o teste `isDev` é falso e a aplicação arranca normalmente.
+         */
+        var isDev = !!document.querySelector('script[src*="/src/main.tsx"]');
+        if (isFile && isDev) {
+          showFailure({
+            title: 'Este é o ficheiro de desenvolvimento',
+            html:
+              'A versão pronta a usar está em <b>dist\\index.html</b> — é essa que abre com duplo clique. ' +
+              'Se ainda não existir, no projeto corre <b>npm run build</b> (ou duplo clique em ' +
+              '<b>iniciar-aplicacao.cmd</b>).',
+            hint: 'Este ficheiro só funciona com o servidor de desenvolvimento (npm run dev).',
+          });
+          return;
+        }
+
+        // Se ao fim de 6 s o React ainda não montou nada, o módulo não correu.
+        setTimeout(function () {
+          if (failure.hidden === false) return;
+          var root = document.getElementById('root');
+          if (!root || root.children.length > 0) return;
+
+          /*
+           * Recuperação automática (uma única vez por sessão): depois de uma
+           * atualização, o service worker antigo pode servir um index.html que
+           * aponta para ficheiros que já não existem — a página fica vazia. Em
+           * vez de mostrar um painel, limpa a cache e recarrega sozinha.
+           */
+          var tried = 'instacraftmine.recovered';
+          try {
+            if (!window.sessionStorage.getItem(tried)) {
+              window.sessionStorage.setItem(tried, '1');
+              showFailure({
+                title: 'A atualizar a aplicação…',
+                html: 'Estava a ser usada uma versão antiga em cache. A limpar e a voltar a abrir.',
+                hint: '',
+              });
+              clearCachesAndReload();
+              return;
+            }
+          } catch (error) {
+            // sessionStorage bloqueado: segue para a mensagem normal
+          }
+
+          showFailure({
+            title: 'A aplicação não arrancou',
+            html:
+              'O navegador não conseguiu executar a aplicação. Costuma acontecer depois de uma atualização: ' +
+              'usa «Limpar cache e recarregar» abaixo. Se continuar, confirma que a pasta <b>dist/</b> está completa ' +
+              '(no projeto, corre <b>npm run build</b>).',
+            hint: 'Detalhes técnicos ficam na consola do navegador (F12 → Consola).',
+          });
+        }, 6000);
+
+        // Depois de recuperar, o aviso não volta a repetir a limpeza nesta sessão.
+
+        // Se o React montou mas os dados nunca chegam, o problema é o armazenamento.
+        setTimeout(function () {
+          if (failure.hidden === false) return;
+          if (document.documentElement.dataset.appReady !== 'true') {
+            showFailure({
+              title: 'Os dados demoraram demasiado a abrir',
+              html:
+                'A interface carregou mas o armazenamento local deste navegador não respondeu. ' +
+                'Acontece em janelas privadas com armazenamento bloqueado, ou se outra aba estiver a bloquear a base de dados.' +
+                '<br><br>Fecha as outras abas da aplicação e usa «Limpar cache e recarregar».',
+              hint: 'Os dados já guardados não são apagados por esta recuperação.',
+            });
+          }
+        }, 9000);
+      })();
+    </script>
+  </body>
+</html>

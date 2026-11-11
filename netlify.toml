@@ -1,0 +1,69 @@
+# Configuração da Netlify (site estático).
+#
+# O site é só ficheiros: mundos, servidores e coordenadas ficam no navegador de
+# cada pessoa (IndexedDB). As contas, o Instacraft, os servidores partilhados e o
+# chat usam o Supabase (ver `supabase/schema.sql`), chamado diretamente pelo
+# browser — não há servidor para alojar.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# A aplicação usa encaminhamento por hash (#/mundos), mas este fallback garante
+# que qualquer endereço abre a app (útil para /manifest.webmanifest, /icons/…).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Os ícones e o service worker mudam de versão a cada deploy.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Ficheiros lidos por máquinas: o resumo para assistentes de IA (`llms.txt`), o
+# mapa do site, as regras de rastreio e o cartão de partilha. O `public/_headers`
+# tem as mesmas regras (vale quando o site é publicado arrastando a pasta `dist/`).
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/og/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/sobre.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

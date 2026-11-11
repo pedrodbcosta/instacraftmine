@@ -1,0 +1,17 @@
+node_modules/
+dist/
+dist-ssr/
+*.local
+.vite/
+coverage/
+.DS_Store
+*.log
+tests/__screenshots__/actual/
+backups/
+.env
+.env.local
+# Credenciais da IA local e da conta oficial: vivem fora do projeto, mas se
+# alguém as criar aqui por engano não podem entrar num commit.
+ia.env
+.instacraftmine/
+logs/
